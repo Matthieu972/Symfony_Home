@@ -2,28 +2,34 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * Product
+ * @ORM\Entity
+ * @ORM\Table(name="product")
+ * @IgnoreAnnotation("fn")
  */
 class Product
 {
     /**
-     * @var int
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
-     * @var int
+     * @ORM\Column(type="decimal", scale=2)
      */
     private $price;
 
     /**
-     * @var string
+     * @ORM\Column(type="text")
      */
     private $description;
 
